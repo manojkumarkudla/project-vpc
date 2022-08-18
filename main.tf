@@ -1,13 +1,13 @@
-resource "aws_vpc" "main_vpc" {
+resource "aws_vpc" "elk_vpc" {
   cidr_block = "192.168.0.0/16"
 
   tags = {
-    Name  = "main-vpc"
+    Name  = "elk-vpc"
   }
 }
 
 resource "aws_internet_gateway" "internet_gateway" {
-  vpc_id = aws_vpc.main_vpc.id
+  vpc_id = aws_vpc.elk_vpc.id
 
   tags = {
     Name = "main-ig"
